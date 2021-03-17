@@ -1,6 +1,8 @@
 #!/bin/bash 
 
- 
+### Start script ###
+##### Set variable #####
+
 export PATH=/bin:/usr/bin:/usr/local/bin
 TODAY=`date +'%m-%d-%Y'`
 DB_BACKUP_PATH='/root/tuyendd/db_backup'
@@ -23,7 +25,6 @@ echo "${TODAY} Backup started for database - ${DATABASE_NAME}" >> $LOGFILE 2>&1
 gzip ${DB_BACKUP_PATH}/${TODAY}/${DB}-${TODAY}.sql
 done
 
- 
 ##### Remove backups older than {BACKUP_RETAIN_DAYS} days  #####
  
 DBDELDATE=`date +'%m-%d-%Y' --date="${BACKUP_RETAIN_DAYS} days ago"`
@@ -34,4 +35,4 @@ if [ ! -z ${DB_BACKUP_PATH} ]; then
             rm -rf ${DBDELDATE}
       fi
 fi
-### End of script ####
+### End of script ###
