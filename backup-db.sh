@@ -5,7 +5,7 @@
 
 export PATH=/bin:/usr/bin:/usr/local/bin
 TODAY=`date +'%m-%d-%Y'`
-DB_BACKUP_PATH='/root/tuyendd/db_backup'
+DB_BACKUP_PATH='/root/return200/db_backup'
 DATABASE_NAME=`mysql --defaults-file=/etc/mysql/debian.cnf -e "show databases" | grep -v 'information_schema\|performance_schema\|Database\|mysql\|sys'`
 CMD="mysqldump --defaults-file=/etc/mysql/debian.cnf --routines --ignore-table=mysql.event"
 BACKUP_RETAIN_DAYS=14   ## Number of days to keep local backup copy
